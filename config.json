@@ -12,7 +12,10 @@
     "streamSettings": {
       "network": "ws",
       "wsSettings": {
-        "path": "/vmess"
+        "path": "/vmess",
+        "headers": {
+          "Host": "speedtest.net"
+        }
       }
     }
   }],
