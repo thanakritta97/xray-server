@@ -4,7 +4,7 @@
   },
   "inbounds": [
     {
-      "tag": "vless-reality",
+      "tag": "vless-in",
       "port": 443,
       "listen": "0.0.0.0",
       "protocol": "vless",
@@ -12,21 +12,17 @@
         "clients": [
           {
             "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
-            "flow": "xtls-rprx-vision"
+            "encryption": "none"
           }
         ],
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "show": false,
-          "dest": "www.speedtest.net:443",
-          "xver": 0,
-          "serverNames": ["speedtest.net", "www.speedtest.net"],
-          "privateKey": "0dbf50c7-580b-49aa-b48d-9e16711a1241",
-          "shortIds": ["0123456789abcdef"]
+        "network": "http",
+        "security": "none",
+        "httpSettings": {
+          "path": "/vless",
+          "host": ["speedtest.net"]
         }
       },
       "sniffing": {
