@@ -22,7 +22,7 @@
         "security": "none",
         "xhttpSettings": {
           "path": "/vless",
-          "host": ["speedtest.net"]
+          "host": "speedtest.net"
         }
       },
       "sniffing": {
