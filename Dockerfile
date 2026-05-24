@@ -5,7 +5,7 @@ WORKDIR /root
 COPY config.json /root/config.json
 COPY start.sh /root/start.sh
 
-# ให้สิทธิ์รัน
 RUN chmod +x /root/start.sh
 
+# ใช้ start.sh เป็น entrypoint
 ENTRYPOINT ["/root/start.sh"]
