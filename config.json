@@ -1,20 +1,62 @@
 {
-  "inbounds": [{
-    "port": 8080,
-    "protocol": "vless",
-    "settings": {
-      "clients": [{
-        "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
-        "level": 0
-      }],
-      "decryption": "none"
-    },
-    "streamSettings": {
-      "network": "xhttp",
-      "xhttpSettings": {
-        "path": "/vless"
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "vless-in",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
+            "encryption": "none"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "http",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/etc/ssl/certs/fullchain.pem",
+              "keyFile": "/etc/ssl/certs/privkey.pem"
+            }
+          ]
+        },
+        "httpSettings": {
+          "path": "/vless",
+          "host": ["speedtest.net"]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"]
       }
     }
-  }],
-  "outbounds": [{"protocol": "freedom"}]
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "block"
+      }
+    ]
+  }
 }
