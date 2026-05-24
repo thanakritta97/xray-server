@@ -18,12 +18,16 @@
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "http",
+        "network": "xhttp",
         "security": "none",
-        "httpSettings": {
+        "xhttpSettings": {
           "path": "/vless",
           "host": ["speedtest.net"]
         }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"]
       }
     }
   ],
