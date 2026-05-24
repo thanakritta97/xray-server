@@ -1,0 +1,20 @@
+{
+  "inbounds": [{
+    "port": 80,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [{
+        "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
+        "alterId": 0,
+        "security": "aes-128-gcm"
+      }]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/vmess"
+      }
+    }
+  }],
+  "outbounds": [{"protocol": "freedom"}]
+}
