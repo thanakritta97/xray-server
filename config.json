@@ -1,18 +1,18 @@
 {
   "inbounds": [{
-    "port": 80,
-    "protocol": "vmess",
+    "port": 8080,
+    "protocol": "vless",
     "settings": {
       "clients": [{
         "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
-        "alterId": 0,
-        "security": "aes-128-gcm"
-      }]
+        "level": 0
+      }],
+      "decryption": "none"
     },
     "streamSettings": {
-      "network": "ws",
-      "wsSettings": {
-        "path": "/vmess"
+      "network": "xhttp",
+      "xhttpSettings": {
+        "path": "/vless"
       }
     }
   }],
