@@ -1,6 +1,10 @@
-FROM ghcr.io/xtls/xray-core:latest
-COPY config.json /etc/xray/config.json
-EXPOSE 8080
-HEALTHCHECK NONE
-ENTRYPOINT ["/usr/local/bin/xray"]
-CMD ["run", "-config", "/etc/xray/config.json"]
+FROM teddysun/xray:latest
+
+WORKDIR /root
+
+# คัดลอก config
+COPY config.json /root/config.json
+
+# รัน Xray ด้วยคำสั่งที่ถูกต้อง
+ENTRYPOINT ["xray"]
+CMD ["run", "-c", "/root/config.json"]
