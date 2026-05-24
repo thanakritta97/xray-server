@@ -11,8 +11,7 @@
       "settings": {
         "clients": [
           {
-            "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12",
-            "encryption": "none"
+            "id": "57f364b9-bcaf-4a35-91e3-8aae82e4ce12"
           }
         ],
         "decryption": "none"
